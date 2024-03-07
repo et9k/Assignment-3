@@ -34,24 +34,16 @@ def simplify(G):
 
     S = deepcopy(G)
 
-
-
-
-    for i in range(2, len(G.nodes())):
-        for n1 in G.nodes():
-        #print(graph.nodes())
-        #print(graph.neighbors(n1))
-            neighbors = G.neighbors(n1)
-            #print(neighbors)
-            for n2 in neighbors:
-                #print(n2)
-                #print(S)
-                if G.has_edge(n1, n2):
-                    G.delete_edge(n1,n2)
+    for n1 in G.nodes():
+        neighbors = G.neighbors(n1)
+        for n2 in neighbors:
+            next_neighbors = G.neighbors(n2)
+            for key in next_neighbors:
+                if key in neighbors:
+                    #print("yes")
+                    G.delete_edge(n1, key)
                     #print(G)
 
-
-    
 
     return S
 

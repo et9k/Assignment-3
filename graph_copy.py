@@ -119,5 +119,5 @@ class Graph:
     
     def neighbors(self, x):
         neighbors = self.edges[x]
-        print(neighbors)
+        #print(neighbors)
         return neighbors
